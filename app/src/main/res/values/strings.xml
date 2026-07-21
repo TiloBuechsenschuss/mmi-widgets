@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">MMI-Widgets</string>
+
+    <!-- Main screen -->
+    <string name="number_section_title">Forwarding number</string>
+    <string name="number_section_hint">The number that call-forwarding codes will forward to.</string>
+    <string name="number_hint">e.g. +49123456789</string>
+    <string name="save_number">Save</string>
+    <string name="number_saved">Number saved</string>
+    <string name="actions_section_title">Functions</string>
+    <string name="toggle">Toggle</string>
+
+    <!-- Shared state labels -->
+    <string name="state_on">On</string>
+    <string name="state_off">Off</string>
+
+    <!-- Widget -->
+    <string name="widget_description">Toggle an MMI function (e.g. call forwarding) with one tap.</string>
+
+    <!-- Errors -->
+    <string name="error_unknown_action">Unknown function</string>
+    <string name="error_no_number">Save a forwarding number first</string>
+    <string name="error_call_permission">Call permission is required to send MMI codes</string>
+    <string name="error_dial_failed">Could not send code: %1$s</string>
 </resources>
