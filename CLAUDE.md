@@ -4,6 +4,9 @@ Agent instructions for this repository live in **[AGENTS.md](./AGENTS.md)**. Rea
 changes — it covers the app's purpose, the Java-only / no-Compose constraint, the project layout,
 how MMI sending works, how to extend the app, and the build/test commands.
 
+See **[README.md](./README.md)** for the user-facing overview. This is an **AI-generated /
+AI-assisted project** — keep the AI warning in `README.md` intact unless the user asks otherwise.
+
 Key reminders:
 
 - **Java only**, classic Views + ViewBinding. No Kotlin, no Jetpack Compose.

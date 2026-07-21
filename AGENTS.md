@@ -1,7 +1,12 @@
 # Agent instructions — MMI-Widgets
 
 This file is the source of truth for anyone (human or AI agent) working in this repository.
-`CLAUDE.md` intentionally just points here.
+`CLAUDE.md` intentionally just points here, and `README.md` is the user-facing overview — keep all
+three consistent when you change how the app is built, run, or structured.
+
+> **This is an AI-generated / AI-assisted project.** Most code and docs here were produced by an AI
+> agent and have not been audited for production use. Keep the AI warning in `README.md` intact, and
+> do not remove or soften it without the user explicitly asking.
 
 ## What this app is
 
@@ -44,12 +49,15 @@ app/src/main/res/
   layout/widget_mmi.xml        Widget layout (RemoteViews — basic views only).
   xml/mmi_widget_info.xml       Widget metadata.
   drawable/widget_background.xml
+  drawable/ic_launcher_{split,prompt}_{background,foreground}.xml  Adaptive launcher icon layers,
+                               two switchable concepts (split = default). Switch by swapping the
+                               drawable refs in mipmap-anydpi/ic_launcher{,_round}.xml.
   values/{strings,colors,themes}.xml
 
 app/src/test/java/...          Pure-JVM unit tests (run without a device).
 ```
 
-Build config: `app/build.gradle.kts` (Java 11, `viewBinding`), dependency versions in
+Build config: `app/build.gradle` (Groovy DSL, Java 11, `viewBinding`), dependency versions in
 `gradle/libs.versions.toml`. `minSdk` is 35, `targetSdk`/`compileSdk` 36.
 
 ## How MMI sending works (important background)
