@@ -51,7 +51,7 @@ public final class MmiAction {
 
     /**
      * Creates a one-shot action: it dials a single code and keeps <em>no</em> on/off state. Used
-     * for interrogation / status-check codes such as {@code *#002#}, which ask the network to show
+     * for interrogation / status-check codes such as {@code *#21#}, which ask the network to show
      * the current call-forwarding configuration.
      */
     @NonNull

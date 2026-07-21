@@ -67,9 +67,12 @@ public final class MainActivity extends AppCompatActivity {
 
             label.setText(action.getLabel());
             if (action.isOneShot()) {
-                // One-shot: a "Check" button, no persistent on/off state to show.
+                // One-shot: a "Check" button, no persistent on/off state to show. Render it as a
+                // sub-row nested directly under the function it interrogates: indented and pulled
+                // up so it visually belongs to the toggle above it.
                 toggle.setText(R.string.check);
                 state.setVisibility(View.GONE);
+                row.setPaddingRelative(dpToPx(32), 0, 0, dpToPx(8));
             } else {
                 toggle.setText(R.string.toggle);
             }
@@ -82,6 +85,10 @@ public final class MainActivity extends AppCompatActivity {
             binding.actionsContainer.addView(row);
         }
         refreshActionStates();
+    }
+
+    private int dpToPx(int dp) {
+        return Math.round(dp * getResources().getDisplayMetrics().density);
     }
 
     private void refreshActionStates() {

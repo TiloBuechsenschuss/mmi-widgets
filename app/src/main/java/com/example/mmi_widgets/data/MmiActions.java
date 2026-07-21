@@ -31,8 +31,14 @@ public final class MmiActions {
     /** Call forwarding when unanswered. */
     public static final String ID_FORWARD_NO_REPLY = "call_forwarding_no_reply";
 
-    /** Interrogation code: ask the network to show the current call-forwarding configuration. */
+    /** Interrogation code: show the current <em>unconditional</em> call-forwarding configuration. */
     public static final String ID_CHECK_FORWARDING = "call_forwarding_status";
+
+    /** Interrogation code: show the current <em>busy</em> call-forwarding configuration. */
+    public static final String ID_CHECK_FORWARD_BUSY = "call_forwarding_busy_status";
+
+    /** Interrogation code: show the current <em>no-reply</em> call-forwarding configuration. */
+    public static final String ID_CHECK_FORWARD_NO_REPLY = "call_forwarding_no_reply_status";
 
     private static final Map<String, MmiAction> ACTIONS = buildRegistry();
 
@@ -42,12 +48,22 @@ public final class MmiActions {
     private static Map<String, MmiAction> buildRegistry() {
         Map<String, MmiAction> map = new LinkedHashMap<>();
 
+        // Each forwarding toggle is immediately followed by its own interrogation ("Status") code,
+        // so the check renders directly below the function it verifies. The network responds to an
+        // interrogation with a system dialog; the app cannot read the result, so it is a manual aid.
+        //
+        // Interrogation must target a basic service (*#21# / *#67# / *#61#). Do NOT use the "all
+        // call forwarding" group code *#002#: GSM allows registration, erasure, activation and
+        // deactivation of the 002/004 groups, but NOT interrogation, so most networks reject *#002#
+        // with "Connection problem or invalid MMI code".
+
         put(map, new MmiAction(
                 ID_CALL_FORWARDING,
                 "Call forwarding (all)",
                 "**21*" + MmiAction.NUMBER_PLACEHOLDER + "#",
                 "##21#",
                 true));
+        put(map, MmiAction.oneShot(ID_CHECK_FORWARDING, "Status", "*#21#"));
 
         put(map, new MmiAction(
                 ID_FORWARD_BUSY,
@@ -55,6 +71,7 @@ public final class MmiActions {
                 "**67*" + MmiAction.NUMBER_PLACEHOLDER + "#",
                 "##67#",
                 true));
+        put(map, MmiAction.oneShot(ID_CHECK_FORWARD_BUSY, "Status", "*#67#"));
 
         put(map, new MmiAction(
                 ID_FORWARD_NO_REPLY,
@@ -62,13 +79,7 @@ public final class MmiActions {
                 "**61*" + MmiAction.NUMBER_PLACEHOLDER + "#",
                 "##61#",
                 true));
-
-        // *#002# interrogates all call-forwarding settings at once. The network responds with a
-        // system dialog; the app cannot read the result, so this is a manual verification aid.
-        put(map, MmiAction.oneShot(
-                ID_CHECK_FORWARDING,
-                "Check forwarding status",
-                "*#002#"));
+        put(map, MmiAction.oneShot(ID_CHECK_FORWARD_NO_REPLY, "Status", "*#61#"));
 
         return Collections.unmodifiableMap(map);
     }
