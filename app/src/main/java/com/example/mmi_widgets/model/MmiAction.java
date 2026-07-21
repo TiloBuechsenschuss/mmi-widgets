@@ -24,17 +24,41 @@ public final class MmiAction {
     private final String enableCode;
     private final String disableCode;
     private final boolean requiresNumber;
+    private final boolean oneShot;
 
+    /** Creates a toggle action with distinct enable/disable codes and persisted on/off state. */
     public MmiAction(@NonNull String id,
                      @NonNull String label,
                      @NonNull String enableCode,
                      @NonNull String disableCode,
                      boolean requiresNumber) {
+        this(id, label, enableCode, disableCode, requiresNumber, false);
+    }
+
+    private MmiAction(@NonNull String id,
+                      @NonNull String label,
+                      @NonNull String enableCode,
+                      @NonNull String disableCode,
+                      boolean requiresNumber,
+                      boolean oneShot) {
         this.id = id;
         this.label = label;
         this.enableCode = enableCode;
         this.disableCode = disableCode;
         this.requiresNumber = requiresNumber;
+        this.oneShot = oneShot;
+    }
+
+    /**
+     * Creates a one-shot action: it dials a single code and keeps <em>no</em> on/off state. Used
+     * for interrogation / status-check codes such as {@code *#002#}, which ask the network to show
+     * the current call-forwarding configuration.
+     */
+    @NonNull
+    public static MmiAction oneShot(@NonNull String id,
+                                    @NonNull String label,
+                                    @NonNull String code) {
+        return new MmiAction(id, label, code, code, false, true);
     }
 
     /** Stable identifier used as a preferences key and in intents. */
@@ -64,6 +88,14 @@ public final class MmiAction {
     /** Whether {@link #getEnableCode()} needs a saved number to be usable. */
     public boolean requiresNumber() {
         return requiresNumber;
+    }
+
+    /**
+     * Whether this is a one-shot action (dials a single code, no on/off state). One-shot actions
+     * are shown with a "Check" button instead of a toggle and never touch persisted state.
+     */
+    public boolean isOneShot() {
+        return oneShot;
     }
 
     /**

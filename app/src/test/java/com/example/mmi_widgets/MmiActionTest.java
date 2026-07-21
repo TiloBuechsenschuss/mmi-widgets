@@ -28,4 +28,12 @@ public class MmiActionTest {
     public void disable_ignoresNumber() {
         assertEquals("##21#", forwarding.resolveCode(false, "123456"));
     }
+
+    @Test
+    public void oneShot_dialsSameCodeRegardlessOfState() {
+        MmiAction status = MmiAction.oneShot("call_forwarding_status", "Check status", "*#002#");
+        org.junit.Assert.assertTrue(status.isOneShot());
+        assertEquals("*#002#", status.resolveCode(true, ""));
+        assertEquals("*#002#", status.resolveCode(false, "123456"));
+    }
 }

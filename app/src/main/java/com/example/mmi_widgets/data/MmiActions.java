@@ -14,7 +14,7 @@ import java.util.Map;
  * Registry of the MMI functions the app knows about.
  *
  * <p>This is intentionally a hard-coded list for the skeleton. The standard GSM supplementary
- * service codes below work on most networks, but carriers differ &mdash; treat these as sane
+ * service codes below work on most networks, but carriers differ - treat these as sane
  * defaults that can later be made editable by the user.</p>
  *
  * <p>To add a new toggle, add another {@link MmiAction} here and (if it should have its own
@@ -30,6 +30,9 @@ public final class MmiActions {
 
     /** Call forwarding when unanswered. */
     public static final String ID_FORWARD_NO_REPLY = "call_forwarding_no_reply";
+
+    /** Interrogation code: ask the network to show the current call-forwarding configuration. */
+    public static final String ID_CHECK_FORWARDING = "call_forwarding_status";
 
     private static final Map<String, MmiAction> ACTIONS = buildRegistry();
 
@@ -59,6 +62,13 @@ public final class MmiActions {
                 "**61*" + MmiAction.NUMBER_PLACEHOLDER + "#",
                 "##61#",
                 true));
+
+        // *#002# interrogates all call-forwarding settings at once. The network responds with a
+        // system dialog; the app cannot read the result, so this is a manual verification aid.
+        put(map, MmiAction.oneShot(
+                ID_CHECK_FORWARDING,
+                "Check forwarding status",
+                "*#002#"));
 
         return Collections.unmodifiableMap(map);
     }

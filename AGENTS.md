@@ -76,6 +76,14 @@ Build config: `app/build.gradle.kts` (Java 11, `viewBinding`), dependency versio
 
 ## Build & test
 
+**`JAVA_HOME` must be set first.** This machine has no JDK on `PATH`; use the one bundled with
+Android Studio at `C:\Program Files\Android\Android Studio\jbr`. Without it Gradle fails with
+`ERROR: JAVA_HOME is not set and no 'java' command could be found`. In PowerShell:
+
+```
+$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
+```
+
 Run from the repo root (Windows shell shown; use `./gradlew` on Unix):
 
 ```

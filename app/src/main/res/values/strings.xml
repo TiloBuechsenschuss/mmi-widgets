@@ -9,6 +9,7 @@
     <string name="number_saved">Number saved</string>
     <string name="actions_section_title">Functions</string>
     <string name="toggle">Toggle</string>
+    <string name="check">Check</string>
 
     <!-- Shared state labels -->
     <string name="state_on">On</string>

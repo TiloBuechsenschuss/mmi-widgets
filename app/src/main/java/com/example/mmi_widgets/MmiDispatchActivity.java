@@ -66,12 +66,17 @@ public final class MmiDispatchActivity extends Activity {
             return;
         }
 
-        targetEnabled = resolveTargetState(getIntent().getStringExtra(EXTRA_MODE), action);
+        if (action.isOneShot()) {
+            // No target state and no number needed; just dial the single code.
+            targetEnabled = true;
+        } else {
+            targetEnabled = resolveTargetState(getIntent().getStringExtra(EXTRA_MODE), action);
 
-        if (action.requiresNumber() && targetEnabled && settings.getForwardNumber().isEmpty()) {
-            Toast.makeText(this, R.string.error_no_number, Toast.LENGTH_LONG).show();
-            finish();
-            return;
+            if (action.requiresNumber() && targetEnabled && settings.getForwardNumber().isEmpty()) {
+                Toast.makeText(this, R.string.error_no_number, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
         }
 
         if (MmiSender.hasCallPermission(this)) {
@@ -97,9 +102,11 @@ public final class MmiDispatchActivity extends Activity {
         String code = action.resolveCode(targetEnabled, settings.getForwardNumber());
         try {
             MmiSender.dial(this, code);
-            // Optimistically record the new state and refresh any widgets.
-            settings.setEnabled(action.getId(), targetEnabled);
-            MmiWidgetProvider.refreshAll(this);
+            if (!action.isOneShot()) {
+                // Optimistically record the new state and refresh any widgets.
+                settings.setEnabled(action.getId(), targetEnabled);
+                MmiWidgetProvider.refreshAll(this);
+            }
         } catch (SecurityException e) {
             Toast.makeText(this, R.string.error_call_permission, Toast.LENGTH_LONG).show();
         } catch (Exception e) {

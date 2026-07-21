@@ -62,9 +62,17 @@ public final class MainActivity extends AppCompatActivity {
             row.setTag(action.getId());
 
             TextView label = row.findViewById(R.id.action_label);
+            TextView state = row.findViewById(R.id.action_state);
             Button toggle = row.findViewById(R.id.action_toggle);
 
             label.setText(action.getLabel());
+            if (action.isOneShot()) {
+                // One-shot: a "Check" button, no persistent on/off state to show.
+                toggle.setText(R.string.check);
+                state.setVisibility(View.GONE);
+            } else {
+                toggle.setText(R.string.toggle);
+            }
             toggle.setOnClickListener(v -> {
                 // Delegate to the shared dispatcher (handles permission + state + widget refresh).
                 startActivity(MmiDispatchActivity.createIntent(
@@ -84,6 +92,10 @@ public final class MainActivity extends AppCompatActivity {
                 continue;
             }
             String actionId = (String) tag;
+            MmiAction action = MmiActions.byId(actionId);
+            if (action == null || action.isOneShot()) {
+                continue;
+            }
             TextView state = row.findViewById(R.id.action_state);
             boolean enabled = settings.isEnabled(actionId);
             state.setText(getString(enabled ? R.string.state_on : R.string.state_off));
