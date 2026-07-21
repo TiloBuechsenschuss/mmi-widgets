@@ -5,10 +5,8 @@ normally type into the dialer — to quickly toggle telephony functions such as 
 without dialing them by hand every time.
 
 > [!WARNING]
-> **This project is AI-generated / AI-assisted.** Most of the code, resources, and documentation
-> in this repository (including this README) were written by an AI coding agent. It has **not** been
-> audited for production use. MMI codes place real actions on a live cellular network — review the
-> codes in `data/MmiActions.java` and verify behaviour on your own device before relying on it.
+> **This project is AI-assisted.** 
+> 
 > No warranty of any kind; use at your own risk.
 
 ## What it does
