@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher icon concept 1d "Prompt" - foreground layer.
+  Terminal cue ">*#" with a block cursor. The ">" is a muted chevron, the "*#"
+  are neon green, and the cursor is a solid green block (a launcher icon is a
+  static drawable, so the design's blinking cursor is rendered solid here).
+  Glyphs are round-capped strokes for crispness at every density.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- ">" chevron (muted) - centered near x=25 -->
+    <path
+        android:pathData="M20,44 L31,54 L20,64"
+        android:strokeColor="#4A5560"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- "*" asterisk (green) - centered at (45,54) -->
+    <group>
+        <path
+            android:pathData="M45,42 L45,66"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="5"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M33.7,47.5 L56.3,60.5"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="5"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M33.7,60.5 L56.3,47.5"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="5"
+            android:strokeLineCap="round" />
+    </group>
+
+    <!-- "#" hash (green) - centered at (67,54) -->
+    <group>
+        <path
+            android:pathData="M62,42 L62,66"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M72,42 L72,66"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M57,49 L77,49"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M57,59 L77,59"
+            android:strokeColor="#58E6A6"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round" />
+    </group>
+
+    <!-- Block cursor (green, solid) - centered at x=84 -->
+    <path
+        android:pathData="M84,41 L84,67"
+        android:strokeColor="#58E6A6"
+        android:strokeWidth="9"
+        android:strokeLineCap="round" />
+</vector>

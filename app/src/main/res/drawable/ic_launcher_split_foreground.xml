@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher icon concept 1f "Split tile" - foreground layer.
+  Neon-blue asterisk on the (dark) left half, dark hash on the (blue) right half.
+  Glyphs are drawn as round-capped strokes so they stay crisp at every density.
+  Content sits inside the central safe zone as far as the full-bleed split allows.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Asterisk "*" (blue) - left half, centered at (28,54), three crossing bars -->
+    <group>
+        <path
+            android:pathData="M28,37 L28,71"
+            android:strokeColor="#7C9CFF"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M13.3,45.5 L42.7,62.5"
+            android:strokeColor="#7C9CFF"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M13.3,62.5 L42.7,45.5"
+            android:strokeColor="#7C9CFF"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+    </group>
+
+    <!-- Hash "#" (dark) - right half, centered at (80,54) -->
+    <group>
+        <path
+            android:pathData="M74,38 L74,70"
+            android:strokeColor="#0A0B0D"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M86,38 L86,70"
+            android:strokeColor="#0A0B0D"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M66,47 L94,47"
+            android:strokeColor="#0A0B0D"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M66,61 L94,61"
+            android:strokeColor="#0A0B0D"
+            android:strokeWidth="6"
+            android:strokeLineCap="round" />
+    </group>
+</vector>
