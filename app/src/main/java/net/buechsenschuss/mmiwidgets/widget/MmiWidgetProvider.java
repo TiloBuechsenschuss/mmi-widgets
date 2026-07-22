@@ -1,4 +1,4 @@
-package com.example.mmi_widgets.widget;
+package net.buechsenschuss.mmiwidgets.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -10,11 +10,11 @@ import android.widget.RemoteViews;
 
 import androidx.annotation.NonNull;
 
-import com.example.mmi_widgets.MmiDispatchActivity;
-import com.example.mmi_widgets.R;
-import com.example.mmi_widgets.data.MmiActions;
-import com.example.mmi_widgets.data.SettingsStore;
-import com.example.mmi_widgets.model.MmiAction;
+import net.buechsenschuss.mmiwidgets.MmiDispatchActivity;
+import net.buechsenschuss.mmiwidgets.R;
+import net.buechsenschuss.mmiwidgets.data.MmiActions;
+import net.buechsenschuss.mmiwidgets.data.SettingsStore;
+import net.buechsenschuss.mmiwidgets.model.MmiAction;
 
 /**
  * Home-screen widget that toggles one MMI function with a single tap.

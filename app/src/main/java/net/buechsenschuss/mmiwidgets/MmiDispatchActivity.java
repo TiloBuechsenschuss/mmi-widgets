@@ -1,4 +1,4 @@
-package com.example.mmi_widgets;
+package net.buechsenschuss.mmiwidgets;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
-import com.example.mmi_widgets.data.SettingsStore;
-import com.example.mmi_widgets.mmi.MmiSender;
-import com.example.mmi_widgets.model.MmiAction;
-import com.example.mmi_widgets.data.MmiActions;
-import com.example.mmi_widgets.widget.MmiWidgetProvider;
+import net.buechsenschuss.mmiwidgets.data.SettingsStore;
+import net.buechsenschuss.mmiwidgets.mmi.MmiSender;
+import net.buechsenschuss.mmiwidgets.model.MmiAction;
+import net.buechsenschuss.mmiwidgets.data.MmiActions;
+import net.buechsenschuss.mmiwidgets.widget.MmiWidgetProvider;
 
 /**
  * Invisible activity that actually executes an MMI code and then finishes.

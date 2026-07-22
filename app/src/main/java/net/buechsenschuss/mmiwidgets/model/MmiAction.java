@@ -1,4 +1,4 @@
-package com.example.mmi_widgets.model;
+package net.buechsenschuss.mmiwidgets.model;
 
 import androidx.annotation.NonNull;
 

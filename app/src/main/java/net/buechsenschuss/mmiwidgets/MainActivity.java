@@ -1,4 +1,4 @@
-package com.example.mmi_widgets;
+package net.buechsenschuss.mmiwidgets;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mmi_widgets.data.MmiActions;
-import com.example.mmi_widgets.data.SettingsStore;
-import com.example.mmi_widgets.databinding.ActivityMainBinding;
-import com.example.mmi_widgets.model.MmiAction;
+import net.buechsenschuss.mmiwidgets.data.MmiActions;
+import net.buechsenschuss.mmiwidgets.data.SettingsStore;
+import net.buechsenschuss.mmiwidgets.databinding.ActivityMainBinding;
+import net.buechsenschuss.mmiwidgets.model.MmiAction;
 
 /**
  * Configuration screen: the user saves the number to forward to and can toggle each MMI function

@@ -1,4 +1,4 @@
-package com.example.mmi_widgets.mmi;
+package net.buechsenschuss.mmiwidgets.mmi;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat;
  *
  * <p>{@code ACTION_CALL} requires the {@link Manifest.permission#CALL_PHONE} runtime permission.
  * Callers should use {@link #hasCallPermission(Context)} first and request it if needed &mdash;
- * see {@link com.example.mmi_widgets.MmiDispatchActivity}.</p>
+ * see {@link net.buechsenschuss.mmiwidgets.MmiDispatchActivity}.</p>
  */
 public final class MmiSender {
 

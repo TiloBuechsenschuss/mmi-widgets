@@ -1,8 +1,8 @@
-package com.example.mmi_widgets;
+package net.buechsenschuss.mmiwidgets;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.mmi_widgets.model.MmiAction;
+import net.buechsenschuss.mmiwidgets.model.MmiAction;
 
 import org.junit.Test;
 

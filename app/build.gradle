@@ -12,7 +12,7 @@ if (keystorePropsFile.exists()) {
 def hasReleaseSigning = keystorePropsFile.exists() || System.getenv("KEYSTORE_FILE") != null
 
 android {
-    namespace = "com.example.mmi_widgets"
+    namespace = "net.buechsenschuss.mmiwidgets"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.mmi_widgets"
+        applicationId = "net.buechsenschuss.mmiwidgets"
         minSdk = 35
         targetSdk = 36
         versionCode = 1

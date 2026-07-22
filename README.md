@@ -28,7 +28,7 @@ treat them as defaults, not guarantees.
 | | |
 |---|---|
 | Language | **Java only** (classic Views + ViewBinding — no Kotlin, no Jetpack Compose) |
-| Application id | `com.example.mmi_widgets` |
+| Application id | `net.buechsenschuss.mmiwidgets` |
 | `minSdk` | 35 |
 | `targetSdk` / `compileSdk` | 36 |
 | JDK | Java 11 (the Android Studio JBR works — see below) |
@@ -36,7 +36,7 @@ treat them as defaults, not guarantees.
 ## Project layout
 
 ```
-app/src/main/java/com/example/mmi_widgets/
+app/src/main/java/net/buechsenschuss/mmiwidgets/
   MainActivity.java             Config screen: save number, toggle functions.
   MmiDispatchActivity.java      Invisible activity: resolves + dials a code, handles CALL_PHONE
                                 permission, updates state, refreshes widgets. Single choke point.

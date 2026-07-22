@@ -1,4 +1,4 @@
-package com.example.mmi_widgets.data;
+package net.buechsenschuss.mmiwidgets.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;

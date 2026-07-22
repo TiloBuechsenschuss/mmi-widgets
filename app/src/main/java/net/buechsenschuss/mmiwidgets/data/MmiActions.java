@@ -1,9 +1,9 @@
-package com.example.mmi_widgets.data;
+package net.buechsenschuss.mmiwidgets.data;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.mmi_widgets.model.MmiAction;
+import net.buechsenschuss.mmiwidgets.model.MmiAction;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
