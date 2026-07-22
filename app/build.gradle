@@ -2,6 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+// Load local signing credentials from keystore.properties (gitignored) if present.
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+}
+// Sign the release build when credentials are available either locally or via CI env vars.
+def hasReleaseSigning = keystorePropsFile.exists() || System.getenv("KEYSTORE_FILE") != null
+
 android {
     namespace = "com.example.mmi_widgets"
     compileSdk {
@@ -20,8 +29,27 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile = rootProject.file(keystoreProps["storeFile"])
+                storePassword = keystoreProps["storePassword"]
+                keyAlias = keystoreProps["keyAlias"]
+                keyPassword = keystoreProps["keyPassword"]
+            } else if (System.getenv("KEYSTORE_FILE") != null) {
+                storeFile = file(System.getenv("KEYSTORE_FILE"))
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.release
+            }
             optimization {
                 enable = false
             }
