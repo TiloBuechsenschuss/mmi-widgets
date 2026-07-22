@@ -16,6 +16,8 @@ import net.buechsenschuss.mmiwidgets.data.SettingsStore;
 import net.buechsenschuss.mmiwidgets.mmi.MmiSender;
 import net.buechsenschuss.mmiwidgets.model.MmiAction;
 import net.buechsenschuss.mmiwidgets.data.MmiActions;
+import net.buechsenschuss.mmiwidgets.widget.MmiToggleIconLabelWidgetProvider;
+import net.buechsenschuss.mmiwidgets.widget.MmiToggleIconWidgetProvider;
 import net.buechsenschuss.mmiwidgets.widget.MmiWidgetProvider;
 
 /**
@@ -106,6 +108,8 @@ public final class MmiDispatchActivity extends Activity {
                 // Optimistically record the new state and refresh any widgets.
                 settings.setEnabled(action.getId(), targetEnabled);
                 MmiWidgetProvider.refreshAll(this);
+                MmiToggleIconWidgetProvider.refreshAll(this);
+                MmiToggleIconLabelWidgetProvider.refreshAll(this);
             }
         } catch (SecurityException e) {
             Toast.makeText(this, R.string.error_call_permission, Toast.LENGTH_LONG).show();

@@ -48,6 +48,30 @@
                 android:resource="@xml/mmi_widget_info" />
         </receiver>
 
+        <!-- Compact 1x1 icon widget: toggles call forwarding, colours a phone icon by state. -->
+        <receiver
+            android:name=".widget.MmiToggleIconWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mmi_widget_1x1_info" />
+        </receiver>
+
+        <!-- Compact 1x1 icon + On/Off label widget: colour-blind-friendly forwarding toggle. -->
+        <receiver
+            android:name=".widget.MmiToggleIconLabelWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mmi_widget_1x1_labeled_info" />
+        </receiver>
+
     </application>
 
 </manifest>

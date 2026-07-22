@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="widget_background">#CC1B5E20</color>
+    <color name="widget_background_neutral">#CC202124</color>
+
+    <!-- 1x1 toggle-widget icon state colours. -->
+    <color name="phone_on">#FF4CAF50</color>
+    <color name="phone_off">#FFF44336</color>
 </resources>

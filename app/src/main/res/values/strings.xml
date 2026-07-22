@@ -17,6 +17,10 @@
 
     <!-- Widget -->
     <string name="widget_description">Toggle an MMI function (e.g. call forwarding) with one tap.</string>
+    <string name="widget_1x1_description">1x1 icon: toggle all call forwarding (green = on, red = off).</string>
+    <string name="widget_1x1_labeled_description">1x1 icon + On/Off label: toggle all call forwarding.</string>
+    <string name="widget_forwarding_on">Call forwarding on</string>
+    <string name="widget_forwarding_off">Call forwarding off</string>
 
     <!-- Errors -->
     <string name="error_unknown_action">Unknown function</string>
